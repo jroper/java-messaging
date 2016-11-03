@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates to the framework that the parameter with this annotation should be passed the partition number
+ * Indicates to the implementation that the parameter with this annotation should be passed the partition number.
  *
  * @see Partitioned
  * @author James Roper

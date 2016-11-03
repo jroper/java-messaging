@@ -16,7 +16,7 @@ import java.lang.annotation.Target;
  * acknowledgement of an element consumed by the processor having been put on the messaging queue.
  *
  * The type of elements that the streams emit or consume can either be the message itself, or can be a
- * {@link MessageEnvelope}, which can be used to convey meta data, and can also allow the framework to invoke
+ * {@link MessageEnvelope}, which can be used to convey meta data, and can also allow the implementation to invoke
  * {@link MessageEnvelope#commit()} to acknowledge that the message has been sent.
  *
  * Indirect message publisher methods may also accept a {@link MessageOffset} parameter, allowing them to resume

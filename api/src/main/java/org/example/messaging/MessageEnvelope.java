@@ -28,9 +28,26 @@ public interface MessageEnvelope<Message> {
     }
 
     /**
-     * Create a message.
+     * Create a simple message with no meta data.
      */
     static <Message> MessageEnvelope<Message> create(Message message) {
         return () -> message;
     }
+
+    /**
+     * Create a simple message with an offset.
+     */
+    static <Message> MessageEnvelope<Message> create(Message message, MessageOffset offset) {
+        return new MessageEnvelope<Message>() {
+            @Override
+            public Message message() {
+                return message;
+            }
+            @Override
+            public MessageOffset offset() {
+                return offset;
+            }
+        };
+    }
+
 }

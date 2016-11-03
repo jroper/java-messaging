@@ -12,7 +12,7 @@ package org.example.messaging;
  *
  * In this case, subscriptions, stream lifecycles, errors, partitioning and sharding, backoff and reconnections are all
  * handled by the implementation, and are not an end user concern. The method is said to be indirect because the handler
- * does not directly work with the streams, it just returns the publishers and subscribers, and lets the subscriber
+ * does not directly work with the streams, it just returns the publishers and subscribers, and lets the implementation
  * work with them.
  *
  * The direct method is used by invoking the {@link #create(Class)}. This will create a message broker client, returning
@@ -31,11 +31,11 @@ public interface MessageBroker {
      * Register a message broker handler.
      *
      * A message broker handler is an object with one or more {@link MessagePublisher} or {@link MessageSubscriber}
-     * methods. The messaging framework will invoke these methods to obtain publishers and subscribers to publish and
-     * consume messages from message broker topics.
+     * methods. The messaging implementation will invoke these methods to obtain publishers and subscribers to publish
+     * and consume messages from message broker topics.
      *
      * Using this method for handling streams is recommended over using {@link #create(Class)}, since it lets the
-     * framework manage stream lifecycles, errors, partitioning and sharding, backoff, reconnections etc for you.
+     * implementation manage stream lifecycles, errors, partitioning and sharding, backoff, reconnections etc for you.
      *
      * @param handler The messaging handler.
      */
@@ -54,7 +54,7 @@ public interface MessageBroker {
      *
      * Where this is primarily useful is in chaining message topics together, such as where a handler passed to
      * {@link #register(Object)} has a message publisher that consumes a message subsbcriber, in that case the stream
-     * lifecycle is already being managed by the framework.
+     * lifecycle is already being managed by the implementation.
      *
      * @param clientInterface An interface that contains one or more message publisher or message subscriber methods.
      * @return Returns an implementation of that interface that allows the streams to be consumed directly.

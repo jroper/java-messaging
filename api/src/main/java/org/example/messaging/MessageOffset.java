@@ -19,7 +19,7 @@ public interface MessageOffset {
             this.value = value;
         }
 
-        long value() {
+        public long value() {
             return value;
         }
 

@@ -6,12 +6,12 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * Indicates to the framework that a {@link MessagePublisher} source is partitioned.
+ * Indicates to the messaging implementation that a {@link MessagePublisher} source is partitioned.
  *
- * The framework will distributed these message publishers across a cluster of nodes for the one service, allowing the
- * publishing load for the message publisher to be shared by many nodes.
+ * The implementation will distributed these message publishers across a cluster of nodes for the one service, allowing
+ * the publishing load for the message publisher to be shared by many nodes.
  *
- * This should be used in combination with the {@link Partition} method, so that the framework can indicate which
+ * This should be used in combination with the {@link Partition} method, so that the implementation can indicate which
  * partition it getting the publisher for.
  *
  * @author James Roper
